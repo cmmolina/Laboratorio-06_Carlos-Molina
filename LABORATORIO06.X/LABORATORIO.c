@@ -56,7 +56,7 @@ void __interrupt() isr (void){
     
     PIR1bits.TXIF = 0;
     }
-    
+   
 }
 //******************************************************************************
 // Código Principal 
@@ -69,7 +69,7 @@ void main(void) {
             
     //Loop Principal
     while(1){
-        print("\r\r\r  |  1) Leer Potenciometro \r");
+        print("\r1) Leer Potenciometro \r");
         print("2) Enviar ASCII \r"); 
                 
                 

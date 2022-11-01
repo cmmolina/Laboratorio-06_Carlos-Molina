@@ -525,7 +525,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 142 ]
 {
 "72
-[; ;LABORATORIO.c: 72:         print("\r\r\r  |  1) Leer Potenciometro \r");
+[; ;LABORATORIO.c: 72:         print("\r1) Leer Potenciometro \r");
 [e ( _print (1 :s 1C ]
 "73
 [; ;LABORATORIO.c: 73:         print("2) Enviar ASCII \r");
@@ -580,222 +580,222 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93
 [; ;LABORATORIO.c: 93:         option_selected = RCREG;
 [e = _option_selected -> _RCREG `uc ]
-"95
-[; ;LABORATORIO.c: 95:         if (option_selected == '1'){
+"96
+[; ;LABORATORIO.c: 96:         if (option_selected == '1'){
 [e $ ! == -> _option_selected `ui -> 49 `ui 150  ]
 {
-"96
-[; ;LABORATORIO.c: 96:             print("Valor del pot --> ");
-[e ( _print (1 :s 3C ]
 "97
-[; ;LABORATORIO.c: 97:             TXREG = CCPR1L;
-[e = _TXREG _CCPR1L ]
+[; ;LABORATORIO.c: 97:             print("Valor del pot --> ");
+[e ( _print (1 :s 3C ]
 "98
-[; ;LABORATORIO.c: 98:         }
+[; ;LABORATORIO.c: 98:             TXREG = CCPR1L;
+[e = _TXREG _CCPR1L ]
+"99
+[; ;LABORATORIO.c: 99:         }
 }
 [e $U 151  ]
-"99
-[; ;LABORATORIO.c: 99:         else if (option_selected == '2'){
+"100
+[; ;LABORATORIO.c: 100:         else if (option_selected == '2'){
 [e :U 150 ]
 [e $ ! == -> _option_selected `ui -> 50 `ui 152  ]
 {
-"100
-[; ;LABORATORIO.c: 100:             print("Caracter ASCII a mostrar...");
-[e ( _print (1 :s 4C ]
 "101
-[; ;LABORATORIO.c: 101:             while(PIR1bits.RCIF == 0){
+[; ;LABORATORIO.c: 101:             print("Caracter ASCII a mostrar...");
+[e ( _print (1 :s 4C ]
+"102
+[; ;LABORATORIO.c: 102:             while(PIR1bits.RCIF == 0){
 [e $U 153  ]
 [e :U 154 ]
 {
-"103
-[; ;LABORATORIO.c: 103:             }
+"104
+[; ;LABORATORIO.c: 104:             }
 }
 [e :U 153 ]
-"101
-[; ;LABORATORIO.c: 101:             while(PIR1bits.RCIF == 0){
+"102
+[; ;LABORATORIO.c: 102:             while(PIR1bits.RCIF == 0){
 [e $ == -> . . _PIR1bits 0 5 `i -> 0 `i 154  ]
 [e :U 155 ]
-"104
-[; ;LABORATORIO.c: 104:             PORTB = RCREG;
-[e = _PORTB _RCREG ]
 "105
-[; ;LABORATORIO.c: 105:         }
+[; ;LABORATORIO.c: 105:             PORTB = RCREG;
+[e = _PORTB _RCREG ]
+"106
+[; ;LABORATORIO.c: 106:         }
 }
 [e $U 156  ]
-"106
-[; ;LABORATORIO.c: 106:         else {
+"107
+[; ;LABORATORIO.c: 107:         else {
 [e :U 152 ]
 {
-"107
-[; ;LABORATORIO.c: 107:             print("error\r");
-[e ( _print (1 :s 5C ]
 "108
-[; ;LABORATORIO.c: 108:         }
+[; ;LABORATORIO.c: 108:             print("error\r");
+[e ( _print (1 :s 5C ]
+"109
+[; ;LABORATORIO.c: 109:         }
 }
 [e :U 156 ]
 [e :U 151 ]
-"109
-[; ;LABORATORIO.c: 109:     }
+"110
+[; ;LABORATORIO.c: 110:     }
 }
 [e :U 141 ]
 [e $U 142  ]
 [e :U 143 ]
-"115
-[; ;LABORATORIO.c: 115: }
+"116
+[; ;LABORATORIO.c: 116: }
 [e :UE 140 ]
 }
-"121
-[; ;LABORATORIO.c: 121: void setup(void){
+"122
+[; ;LABORATORIO.c: 122: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"123
-[; ;LABORATORIO.c: 123:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
 "124
-[; ;LABORATORIO.c: 124:     PORTB = 0;
+[; ;LABORATORIO.c: 124:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
+"125
+[; ;LABORATORIO.c: 125:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"127
-[; ;LABORATORIO.c: 127:     OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
 "128
-[; ;LABORATORIO.c: 128:     OSCCONbits.SCS = 1;
+[; ;LABORATORIO.c: 128:     OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"129
+[; ;LABORATORIO.c: 129:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"131
-[; ;LABORATORIO.c: 131:     INTCONbits.GIE = 1;
+"132
+[; ;LABORATORIO.c: 132:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"134
-[; ;LABORATORIO.c: 134:     PIE1bits.ADIE = 1;
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
 "135
-[; ;LABORATORIO.c: 135:     INTCONbits.TMR0IE = 1;
+[; ;LABORATORIO.c: 135:     PIE1bits.ADIE = 1;
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+"136
+[; ;LABORATORIO.c: 136:     INTCONbits.TMR0IE = 1;
 [e = . . _INTCONbits 1 3 -> -> 1 `i `uc ]
-"137
-[; ;LABORATORIO.c: 137:     PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "138
-[; ;LABORATORIO.c: 138: }
+[; ;LABORATORIO.c: 138:     PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"139
+[; ;LABORATORIO.c: 139: }
 [e :UE 157 ]
 }
-"140
-[; ;LABORATORIO.c: 140: void setupADC(void){
+"141
+[; ;LABORATORIO.c: 141: void setupADC(void){
 [v _setupADC `(v ~T0 @X0 1 ef ]
 {
 [e :U _setupADC ]
 [f ]
-"142
-[; ;LABORATORIO.c: 142:     TRISAbits.TRISA1 = 1;
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "143
-[; ;LABORATORIO.c: 143:     ANSELbits.ANS1 = 1;
+[; ;LABORATORIO.c: 143:     TRISAbits.TRISA1 = 1;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+"144
+[; ;LABORATORIO.c: 144:     ANSELbits.ANS1 = 1;
 [e = . . _ANSELbits 0 1 -> -> 1 `i `uc ]
-"146
-[; ;LABORATORIO.c: 146:     ADCON0bits.ADCS = 0b10;
+"147
+[; ;LABORATORIO.c: 147:     ADCON0bits.ADCS = 0b10;
 [e = . . _ADCON0bits 0 3 -> -> 2 `i `uc ]
-"148
-[; ;LABORATORIO.c: 148:     ADCON1bits.VCFG1 = 0;
-[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
 "149
-[; ;LABORATORIO.c: 149:     ADCON1bits.VCFG0 = 0;
+[; ;LABORATORIO.c: 149:     ADCON1bits.VCFG1 = 0;
+[e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]
+"150
+[; ;LABORATORIO.c: 150:     ADCON1bits.VCFG0 = 0;
 [e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
-"152
-[; ;LABORATORIO.c: 152:     ADCON1bits.ADFM = 0;
+"153
+[; ;LABORATORIO.c: 153:     ADCON1bits.ADFM = 0;
 [e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
-"155
-[; ;LABORATORIO.c: 155:     ADCON0bits.CHS = 0b0001;
+"156
+[; ;LABORATORIO.c: 156:     ADCON0bits.CHS = 0b0001;
 [e = . . _ADCON0bits 0 2 -> -> 1 `i `uc ]
-"158
-[; ;LABORATORIO.c: 158:     ADCON0bits.ADON = 1;
+"159
+[; ;LABORATORIO.c: 159:     ADCON0bits.ADON = 1;
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"161
-[; ;LABORATORIO.c: 161:     _delay((unsigned long)((100)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "162
-[; ;LABORATORIO.c: 162: }
+[; ;LABORATORIO.c: 162:     _delay((unsigned long)((100)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"163
+[; ;LABORATORIO.c: 163: }
 [e :UE 158 ]
 }
-"164
-[; ;LABORATORIO.c: 164: void initUART(void){
+"165
+[; ;LABORATORIO.c: 165: void initUART(void){
 [v _initUART `(v ~T0 @X0 1 ef ]
 {
 [e :U _initUART ]
 [f ]
-"166
-[; ;LABORATORIO.c: 166:     SPBRG = 12;
-[e = _SPBRG -> -> 12 `i `uc ]
 "167
-[; ;LABORATORIO.c: 167:     TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;LABORATORIO.c: 167:     SPBRG = 12;
+[e = _SPBRG -> -> 12 `i `uc ]
 "168
-[; ;LABORATORIO.c: 168:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;LABORATORIO.c: 168:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "169
-[; ;LABORATORIO.c: 169:     TXSTAbits.TXEN = 1;
+[; ;LABORATORIO.c: 169:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"170
+[; ;LABORATORIO.c: 170:     TXSTAbits.TXEN = 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"172
-[; ;LABORATORIO.c: 172:     PIR1bits.TXIF = 0;
+"173
+[; ;LABORATORIO.c: 173:     PIR1bits.TXIF = 0;
 [e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-"174
-[; ;LABORATORIO.c: 174:     RCSTAbits.CREN = 1;
+"175
+[; ;LABORATORIO.c: 175:     RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"177
-[; ;LABORATORIO.c: 177: }
+"178
+[; ;LABORATORIO.c: 178: }
 [e :UE 159 ]
 }
-"179
-[; ;LABORATORIO.c: 179: void conversion(int voltaje){
+"180
+[; ;LABORATORIO.c: 180: void conversion(int voltaje){
 [v _conversion `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _conversion ]
 [v _voltaje `i ~T0 @X0 1 r1 ]
 [f ]
-"180
-[; ;LABORATORIO.c: 180:     equivalent = (unsigned short) (48+( (float)(207)/(255) ) * (voltaje-0));
-[e = _equivalent -> -> + -> -> 48 `i `f * / -> -> 207 `i `f -> -> 255 `i `f -> - _voltaje -> 0 `i `f `us `i ]
 "181
-[; ;LABORATORIO.c: 181: }
+[; ;LABORATORIO.c: 181:     equivalent = (unsigned short) (48+( (float)(207)/(255) ) * (voltaje-0));
+[e = _equivalent -> -> + -> -> 48 `i `f * / -> -> 207 `i `f -> -> 255 `i `f -> - _voltaje -> 0 `i `f `us `i ]
+"182
+[; ;LABORATORIO.c: 182: }
 [e :UE 160 ]
 }
-"183
-[; ;LABORATORIO.c: 183: void print(unsigned char *palabra){
+"184
+[; ;LABORATORIO.c: 184: void print(unsigned char *palabra){
 [v _print `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _print ]
 [v _palabra `*uc ~T0 @X0 1 r1 ]
 [f ]
-"185
-[; ;LABORATORIO.c: 185:     while (*palabra != '\0'){
+"186
+[; ;LABORATORIO.c: 186:     while (*palabra != '\0'){
 [e $U 162  ]
 [e :U 163 ]
 {
-"186
-[; ;LABORATORIO.c: 186:         while (TXIF != 1);
+"187
+[; ;LABORATORIO.c: 187:         while (TXIF != 1);
 [e $U 165  ]
 [e :U 166 ]
 [e :U 165 ]
 [e $ != -> _TXIF `i -> 1 `i 166  ]
 [e :U 167 ]
-"187
-[; ;LABORATORIO.c: 187:         TXREG = *palabra;
-[e = _TXREG *U _palabra ]
 "188
-[; ;LABORATORIO.c: 188:         *palabra++;
-[e *U ++ _palabra * -> -> 1 `i `x -> -> # *U _palabra `i `x ]
+[; ;LABORATORIO.c: 188:         TXREG = *palabra;
+[e = _TXREG *U _palabra ]
 "189
-[; ;LABORATORIO.c: 189:     }
+[; ;LABORATORIO.c: 189:         *palabra++;
+[e *U ++ _palabra * -> -> 1 `i `x -> -> # *U _palabra `i `x ]
+"190
+[; ;LABORATORIO.c: 190:     }
 }
 [e :U 162 ]
-"185
-[; ;LABORATORIO.c: 185:     while (*palabra != '\0'){
+"186
+[; ;LABORATORIO.c: 186:     while (*palabra != '\0'){
 [e $ != -> *U _palabra `ui -> 0 `ui 163  ]
 [e :U 164 ]
-"191
-[; ;LABORATORIO.c: 191: }
+"192
+[; ;LABORATORIO.c: 192: }
 [e :UE 161 ]
 }
 [a 4C 67 97 114 97 99 116 101 114 32 65 83 67 73 73 32 97 32 109 111 115 116 114 97 114 46 46 46 0 ]
 [a 3C 86 97 108 111 114 32 100 101 108 32 112 111 116 32 45 45 62 32 0 ]
 [a 5C 101 114 114 111 114 13 0 ]
-[a 1C 13 13 13 32 32 124 32 32 49 41 32 76 101 101 114 32 80 111 116 101 110 99 105 111 109 101 116 114 111 32 13 0 ]
+[a 1C 13 49 41 32 76 101 101 114 32 80 111 116 101 110 99 105 111 109 101 116 114 111 32 13 0 ]
 [a 2C 50 41 32 69 110 118 105 97 114 32 65 83 67 73 73 32 13 0 ]

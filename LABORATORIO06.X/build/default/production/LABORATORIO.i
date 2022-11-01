@@ -2691,7 +2691,7 @@ void main(void) {
 
 
     while(1){
-        print("\r\r\r  |  1) Leer Potenciometro \r");
+        print("\r1) Leer Potenciometro \r");
         print("2) Enviar ASCII \r");
 
 
@@ -2713,6 +2713,7 @@ void main(void) {
 
 
         option_selected = RCREG;
+
 
         if (option_selected == '1'){
             print("Valor del pot --> ");
